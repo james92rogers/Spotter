@@ -22,6 +22,7 @@ urlpatterns = [
     path('workouts/', include('workouts.urls')),
     path('spotme/', include('spotmes.urls')),
     path('shouts/', include('shouts.urls')),
-    path('messages/', include('messaging.urls'))
+    path('messages/', include('messaging.urls')),
+    path('likes/', include('likes.urls'))
 
 ]
