@@ -15,14 +15,26 @@ export const getUsers = async () => {
   return response.data
 }
 
-export const login = async (data) => {
-  console.log(data)
-  return makeAxiosRequest('/users/login/', data)
-}
+// export const login = async (data) => {
+//   console.log(data)
+//   return makeAxiosRequest('/users/login/', data)
+// }
   
 export const register = (data) => {
   console.log('received data')
   return makeAxiosRequest('/users/register/', data)
+}
+
+export const login = async () => {
+  const config = {
+    method: 'post',
+    url: `${baseUrl}/users/login/`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
+  const response = await axios(config)
+  return response.data
 }
 
 
@@ -39,7 +51,6 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
     url: `${baseUrl}${requestUrl}`,
     headers: {
       Authorization: `Bearer ${getToken()}`,
-      'Content-Type': 'application/json',
     },
     data,
   }
