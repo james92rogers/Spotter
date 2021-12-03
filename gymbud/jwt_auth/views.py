@@ -7,14 +7,14 @@ from django.conf import settings
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from .serializers import PopulatedUserSerializer, UserSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 User = get_user_model()
 
 # Create your views here.
 
 
 class UsersListView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         users = User.objects.all()
@@ -23,7 +23,7 @@ class UsersListView(APIView):
 
 
 class UsersDetailView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk):
         user = User.objects.get(id=pk)
@@ -43,6 +43,7 @@ class UsersDetailView(APIView):
 
 
 class RegisterView(APIView):
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -54,6 +55,7 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = (AllowAny,)
 
     def get_user(self, email):
         try:
@@ -76,7 +78,7 @@ class LoginView(APIView):
 
 
 class AddFollowerView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def put(self, request, pk):
         u1 = User.objects.get(id=request.user.id)
@@ -88,7 +90,7 @@ class AddFollowerView(APIView):
 
 
 class DeleteFollowerView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def put(self, request, pk):
         u1 = User.objects.get(id=request.user.id)

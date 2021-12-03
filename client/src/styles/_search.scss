@@ -1,0 +1,33 @@
+.user-list {
+  ul {
+    list-style: none;
+  }
+}
+
+.user-card {
+  display: flex;
+  width: 600px;
+  height: 70px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+
+  .user-card-image {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+  }
+
+  .user-card-info {
+    display: flex;
+    flex-direction: column;
+
+    .bio {
+      font-style: italic;
+    }
+
+    .bottom-line {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+}
