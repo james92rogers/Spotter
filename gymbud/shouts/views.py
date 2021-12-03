@@ -11,7 +11,7 @@ from rest_framework.exceptions import NotFound
 
 class ShoutDetailView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk):
         shout = Shout.objects.get(id=pk)
@@ -43,7 +43,7 @@ class ShoutDetailView(APIView):
 
 
 class ShoutListView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         shouts = Shout.objects.all()

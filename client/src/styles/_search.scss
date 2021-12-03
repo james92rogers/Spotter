@@ -6,23 +6,46 @@
 
 .user-card {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 600px;
-  height: 70px;
+  height: 150px;
   border: 1px solid grey;
   margin-bottom: 20px;
 
   .user-card-image {
-    width: 60px;
-    height: 60px;
+    width: 85px;
+    height: 85px;
     background-size: cover;
+    margin-left: 5px;
   }
 
   .user-card-info {
     display: flex;
+    width: 480px;
+    height: 140px;
     flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 10px;
+
+    .top-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
 
     .bio {
       font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .workout-types {
+      display: flex;
+      flex-wrap: wrap;
+
+      .workout-type {
+        padding-right: 15px;
+      }
     }
 
     .bottom-line {

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { getToken } from './auth'
+import Cookies from 'js-cookie'
+const csrftoken = Cookies.get('csrftoken')
 
 
 const baseUrl = '/api'
@@ -31,6 +33,7 @@ export const login = async () => {
     url: `${baseUrl}/users/login/`,
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrftoken,
     },
   }
   const response = await axios(config)
@@ -51,6 +54,8 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
     url: `${baseUrl}${requestUrl}`,
     headers: {
       Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrftoken,
     },
     data,
   }

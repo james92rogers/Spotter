@@ -46,7 +46,7 @@ class MinimalUserSerializer(serializers.ModelSerializer):
 
 
 class PopulatedUserSerializer(UserSerializer):
-    workout_types = WorkoutSerializer(many=True)
+    workoutTypes = WorkoutSerializer(many=True)
     shout_set = ShoutSerializer(read_only=True, many=True)
     spotme_set = SpotMeSerializer(read_only=True, many=True)
     sender = MessageSerializer(read_only=True, many=True)

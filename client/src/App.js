@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import Search from './pages/Search'
+import Shouts from './pages/Shouts'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
           <Route path='/search' element={<Search />}></Route>
+          <Route path='/shouts' element={<Shouts />}></Route>
           <Route exact path='/' element={<Home />}></Route>
         </Routes>
 

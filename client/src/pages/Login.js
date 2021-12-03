@@ -18,6 +18,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    console.log(data)
     login(data).then(handleSuccessfulLogin).catch(handleError)
   }
   const handleSuccessfulLogin = ({ token, userId }) => {
