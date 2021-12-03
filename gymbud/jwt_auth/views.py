@@ -1,4 +1,5 @@
 from django.core.exceptions import PermissionDenied
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
@@ -64,6 +65,7 @@ class LoginView(APIView):
             raise PermissionDenied({'message': 'Invalid Credentials'})
 
     def post(self, request):
+        print("********** post method reached **********")
 
         email = request.data.get('email')
         password = request.data.get('password')
