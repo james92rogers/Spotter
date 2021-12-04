@@ -1,25 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import { getUsers } from '../helpers/api'
 import axios from 'axios'
 import UserCard from '../components/UserCard'
+import { getGender, getSearch, getSearchType } from '../helpers/auth'
 
 const Search = () => {
   const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await getUsers()
-      console.log('config method: ')
-      console.log(response.data)
 
+  useEffect(() => {
+    const searchType = getSearchType()
+    const search = getSearch()
+    const userGender = getGender()
+    let filteredUsers = []
+    let filteredGenderUsers = []
+
+
+    const getData = async () => {
       const res = await axios.get('/api/users/')
-      console.log('non-config method: ')
-      console.log(res.data)
-      setUsers(res.data)
+      if (searchType === 'username'){
+        filteredUsers = res.data.filter(user => user.username === search)
+      } else if (searchType === 'location'){
+        filteredUsers = res.data.filter(user => user.city === search)
+      } else if (searchType === 'postcode'){
+        filteredUsers = res.data.filter(user => user.postcode === search)
+      }
+      
+      if (userGender === 'male'){
+        filteredGenderUsers = filteredUsers.filter(user => user.allowMales === true)
+      } else if (userGender === 'female'){
+        filteredGenderUsers = filteredUsers.filter(user => user.allowFemales === true)
+      } else if (userGender === 'non-binary'){
+        filteredGenderUsers = filteredUsers.filter(user => user.allowNonBinary === true)
+      }
+
+      const filteredSearchingUsers = filteredGenderUsers.filter(user => user.isSearching === true)
+      //setUsers(res.data)
+      setUsers(filteredSearchingUsers)
     }
     getData()
   }, [])
-
 
 
   return (

@@ -10,7 +10,7 @@ from django.core.exceptions import PermissionDenied
 
 
 class SpotMeDetailView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk):
         spotme = SpotMe.objects.get(id=pk)
@@ -42,7 +42,7 @@ class SpotMeDetailView(APIView):
 
 
 class SpotMeListView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         spotmes = SpotMe.objects.all()

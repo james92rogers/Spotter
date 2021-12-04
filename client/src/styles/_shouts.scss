@@ -1,0 +1,56 @@
+.shout-list {
+  ul {
+    list-style: none;
+  }
+
+  .shout {
+    height: 80px;
+    width: 500px;
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    align-items: center;
+
+    .shout-image {
+      height: 60px;
+      width: 60px;
+      background-size: cover;
+      margin-left: 5px;
+    }
+
+    .shout-info {
+      width: 410px;
+      margin-left: 10px;
+      height: 70px;
+
+      .top-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .date {
+        display: flex;
+        justify-content: flex-end;
+        width: 150px;
+
+        p {
+          padding-left: 10px;
+        }
+      }
+
+      .shout-message {
+        margin-bottom: 10px;
+      }
+
+      .user-links {
+        display: flex;
+        justify-content: flex-end;
+
+        p {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}

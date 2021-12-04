@@ -1,7 +1,5 @@
 import axios from 'axios'
 import { getToken } from './auth'
-import Cookies from 'js-cookie'
-const csrftoken = Cookies.get('csrftoken')
 
 
 const baseUrl = '/api'
@@ -27,14 +25,43 @@ export const register = (data) => {
   return makeAxiosRequest('/users/register/', data)
 }
 
-export const login = async () => {
+export const login = async (data) => {
   const config = {
     method: 'post',
     url: `${baseUrl}/users/login/`,
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': csrftoken,
     },
+    data,
+
+  }
+  const response = await axios(config)
+  return response.data
+}
+
+export const addShout = async (data) => {
+  const config = {
+    method: 'post',
+    url: `${baseUrl}/shouts/`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+    data,
+  }
+  const response = await axios(config)
+  return response.data
+}
+
+export const addSpotMe = async (data) => {
+  const config = {
+    method: 'post',
+    url: `${baseUrl}/spotme/`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+    data,
   }
   const response = await axios(config)
   return response.data
@@ -55,7 +82,6 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
     headers: {
       Authorization: `Bearer ${getToken()}`,
       'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': csrftoken,
     },
     data,
   }

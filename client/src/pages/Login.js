@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../helpers/api'
-import { setToken, setUserId } from '../helpers/auth'
+import { setGender, setToken, setUserId } from '../helpers/auth'
 import FormInput from '../components/FormInput'
 
 const Login = () => {
@@ -21,9 +21,10 @@ const Login = () => {
     console.log(data)
     login(data).then(handleSuccessfulLogin).catch(handleError)
   }
-  const handleSuccessfulLogin = ({ token, userId }) => {
+  const handleSuccessfulLogin = ({ token, id, gender }) => {
     setToken(token)
-    setUserId(userId)
+    setUserId(id)
+    setGender(gender)
     setIsError(false)
     console.log('successful login')
     navigate('/')

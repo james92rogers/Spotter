@@ -11,13 +11,49 @@ export const removeToken = () => {
 }
   
 export const getUserId = () => {
-  return window.localStorage.getItem('userId')
+  return window.localStorage.getItem('id')
 }
   
-export const setUserId = (userId) => {
-  window.localStorage.setItem('userId', userId)
+export const setUserId = (id) => {
+  window.localStorage.setItem('id', id)
 }
   
 export const removeUserId = () => {
-  window.localStorage.removeItem('userId')
+  window.localStorage.removeItem('id')
+}
+
+export const getSearchType = () => {
+  return window.localStorage.getItem('searchType')
+}
+  
+export const setSearchType = (type) => {
+  window.localStorage.setItem('searchType', type)
+}
+  
+export const removeSearchType = () => {
+  window.localStorage.removeItem('searchType')
+}
+
+export const getSearch = () => {
+  return window.localStorage.getItem('search')
+}
+  
+export const setSearch = (search) => {
+  window.localStorage.setItem('search', search)
+}
+  
+export const removeSearch = () => {
+  window.localStorage.removeItem('search')
+}
+
+export const getGender = () => {
+  return window.localStorage.getItem('gender')
+}
+  
+export const setGender = (gender) => {
+  window.localStorage.setItem('gender', gender)
+}
+  
+export const removeGender = () => {
+  window.localStorage.removeItem('gender')
 }

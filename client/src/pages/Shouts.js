@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ShoutCard from '../components/ShoutCard'
+import { Link } from 'react-router-dom'
 
 const Shouts = () => {
   const [shouts, setShouts] = useState([])
+  
 
   useEffect(() => {
     const getData = async () => {
@@ -19,14 +21,19 @@ const Shouts = () => {
 
 
   return (
-    <div className='shout-list'>
-      <ul>
-        {shouts.map((shout) => (
-          <li key={shout.id}>
-            <ShoutCard {...shout} />
-          </li>
-        ))}
-      </ul> 
+    <div className='shout-page'>
+      <div>
+        <p><Link to='/shouts/add'>Create Shout</Link></p>
+      </div>
+      <div className='shout-list'>
+        <ul>
+          {shouts.map((shout) => (
+            <li key={shout.id}>
+              <ShoutCard {...shout} />
+            </li>
+          ))}
+        </ul> 
+      </div>
     </div>
   )
 }

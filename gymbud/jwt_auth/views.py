@@ -76,7 +76,7 @@ class LoginView(APIView):
 
         token = jwt.encode(
             {'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
-        return Response({'token': token, 'id': user.id, 'message': f'Welcome back {user.username}!'})
+        return Response({'token': token, 'id': user.id, 'gender': user.gender, 'message': f'Welcome back {user.username}!'})
 
 
 class AddFollowerView(APIView):

@@ -1,0 +1,68 @@
+.spotme-list {
+  ul {
+    list-style: none;
+  }
+}
+
+.spotme {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  .spot-me-image {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .spotme-info {
+    width: 480px;
+
+    .top-row {
+      margin-bottom: 5px;
+    }
+
+    .second-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 5px;
+
+      .date {
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+      }
+    }
+
+    .third-row {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      margin-bottom: 5px;
+    }
+
+    .fourth-row {
+      margin-bottom: 5px;
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      .workout-types {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .fifth-row {
+      margin-bottom: 5px;
+    }
+
+    .sixth-row {
+      margin-bottom: 5px;
+    }
+  }
+}

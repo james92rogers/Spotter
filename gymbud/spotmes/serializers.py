@@ -12,5 +12,5 @@ class SpotMeSerializer(serializers.ModelSerializer):
 
 
 class PopulatedSpotMeSerializer(SpotMeSerializer):
-    workout_types = WorkoutSerializer(many=True)
+    workoutTypes = WorkoutSerializer(many=True)
     owner = UserSerializer()
