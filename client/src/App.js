@@ -11,6 +11,9 @@ import SpotMes from './pages/SpotMes'
 import { getToken } from './helpers/auth'
 import CreateShout from './pages/CreateShout'
 import CreateSpotMe from './pages/CreateSpotMe'
+import Profile from './pages/Profile'
+import Inbox from './pages/Inbox'
+import SingleMessage from './pages/SingleMessage'
 
 
 function App() {
@@ -53,6 +56,9 @@ function App() {
           <Route path='/shouts' element={<Shouts />}></Route>
           <Route path='/spotmes/add' element={<CreateSpotMe />}></Route>
           <Route path='/spotmes' element={<SpotMes />}></Route>
+          <Route path='/users/:id' element={<Profile />}></Route>          
+          <Route path='/inbox/:id' element={<SingleMessage />}></Route>
+          <Route path='/inbox' element={<Inbox />}></Route>
           <Route exact path='/' element={<Home />}></Route>
         </Routes>
 

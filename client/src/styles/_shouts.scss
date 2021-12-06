@@ -1,32 +1,74 @@
+.shout-page {
+  width: 800px;
+
+  .create-link {
+    position: relative;
+    top: -40px;
+
+    .create {
+      color: $persian-green;
+      border: none;
+      background-color: transparent;
+    }
+
+    .create:hover {
+      color: white;
+    }
+  }
+}
+
 .shout-list {
+  display: flex;
+  justify-content: center;
+
   ul {
     list-style: none;
+    padding-left: none;
   }
 
   .shout {
-    height: 80px;
-    width: 500px;
+    width: 600px;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-    border: 1px solid grey;
-    align-items: center;
+    border: 1px solid $persian-green;
+    position: relative;
 
     .shout-image {
-      height: 60px;
-      width: 60px;
+      height: 80px;
+      width: 80px;
       background-size: cover;
-      margin-left: 5px;
     }
 
     .shout-info {
-      width: 410px;
+      width: 520px;
       margin-left: 10px;
-      height: 70px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .top-row {
+        width: 500px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
+        align-items: flex-start;
+        margin-bottom: 5px;
+        border-bottom: 1px solid $persian-green;
+
+        a {
+          margin-bottom: 0;
+          color: $light-green;
+          text-decoration: none;
+          font-size: 16px;
+          padding: none;
+          padding-left: 5px;
+          font-weight: bold;
+        }
+
+        a:hover {
+          color: white;
+        }
       }
 
       .date {
@@ -35,22 +77,71 @@
         width: 150px;
 
         p {
-          padding-left: 10px;
+          padding: 0 10px 0 5px;
+          margin-bottom: 0;
+          color: white;
+          font-size: 14px;
         }
       }
 
       .shout-message {
-        margin-bottom: 10px;
+        width: 510px;
+
+        p {
+          margin-bottom: 0;
+          font-size: 14px;
+          color: white;
+        }
       }
 
       .user-links {
         display: flex;
         justify-content: flex-end;
+        position: absolute;
+        bottom: 2px;
+        right: 5px;
 
         p {
           padding-left: 10px;
+          color: rgb(198, 198, 198);
+          font-size: 12px;
+        }
+
+        .likes {
+          display: flex;
+          align-items: center;
+
+          i {
+            color: $white;
+            font-size: 12px;
+            padding-left: 5px;
+          }
         }
       }
     }
+  }
+}
+
+.modal-content {
+  background-color: $persian-green;
+  color: white;
+
+  input {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 450px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: white;
+  }
+
+  button:hover {
+    color: $charcoal;
   }
 }

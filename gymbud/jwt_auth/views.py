@@ -8,7 +8,7 @@ from django.conf import settings
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from .serializers import PopulatedUserSerializer, UserSerializer
-from rest_framework.permissions import AllowAny
+# from rest_framework.permissions import AllowAny
 User = get_user_model()
 
 # Create your views here.
@@ -44,7 +44,7 @@ class UsersDetailView(APIView):
 
 
 class RegisterView(APIView):
-    permission_classes = (AllowAny,)
+    #permission_classes = (AllowAny,)
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -56,7 +56,7 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-    permission_classes = (AllowAny,)
+    #permission_classes = (AllowAny,)
 
     def get_user(self, email):
         try:

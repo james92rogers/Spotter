@@ -1,14 +1,10 @@
 import React from 'react'
+import { getDate, getTime } from '../helpers/date'
 
 const SpotMeCard = ({ headline, owner, location, postcode, message, searchingFor, created, workoutTypes }) => {
 
-  const day = created.slice(8, 10)
-  const month = created.slice(5, 7)
-  const year = created.slice(2, 4)
-
-  const date = `${day}.${month}.${year}`
-
-  const time = created.slice(11, 16)
+  const date = getDate(created)
+  const time = getTime(created)
   
   
   return (
@@ -18,15 +14,15 @@ const SpotMeCard = ({ headline, owner, location, postcode, message, searchingFor
           <h3>{headline}</h3>
         </div>
         <div className='second-row'>
-          <p>Posted by: {owner.username}</p>
+          <p>Posted by: <span className='answer'>{owner.username}</span></p>
           <div className='date'>
-            <p>{date}</p>
             <p>{time}</p>
+            <p>{date}</p>
           </div>
         </div>
         <div className='third-row'>
-          <p>City: {location}</p>
-          <p>Area: {postcode}</p>
+          <p>City: <span className='answer'>{location}</span></p>
+          <p>Area: <span className='answer'>{postcode}</span></p>
         </div>
         <div className='fourth-row'>
           <p>Workout Types:</p>
@@ -37,7 +33,7 @@ const SpotMeCard = ({ headline, owner, location, postcode, message, searchingFor
           </div>
         </div>
         <div className='fifth-row'>
-          <p>Searching for: {searchingFor}</p>
+          <p>Searching for: <span className='answer'>{searchingFor}</span></p>
         </div>
         <div className='sixth-row'>
           <p>{message}</p>

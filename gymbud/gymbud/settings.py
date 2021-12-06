@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'spotmes',
     'shouts',
     'likes',
-    'messaging',
+    'inbox',
     'corsheaders',
 ]
 

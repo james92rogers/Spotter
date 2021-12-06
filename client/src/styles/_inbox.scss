@@ -1,0 +1,68 @@
+.inbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+.message-card {
+  width: 500px;
+  border: 1px solid $persian-green;
+  margin-bottom: 10px;
+
+  .read-message,
+  .unread-message {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .message-picture {
+    height: 70px;
+    width: 70px;
+    background-size: cover;
+    margin-right: 10px;
+  }
+
+  .message-info {
+    width: 410px;
+    color: $persian-green;
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        color: $light-green;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: white;
+      }
+
+      .date {
+        display: flex;
+
+        p {
+          padding-left: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .sender {
+      color: white;
+    }
+
+    .message {
+      color: grey;
+      font-size: 14px;
+    }
+  }
+}

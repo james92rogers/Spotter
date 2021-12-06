@@ -7,7 +7,7 @@ const WorkoutCheckbox = ({ id, type, handleCheckbox }) => {
   return (
     <>
       <label htmlFor={idName}>{type}</label>
-      <input type="checkbox" id={idName} value={id} name="workoutTypes" onChange={handleCheckbox}></input>
+      <input className="checkbox" type="checkbox" id={idName} value={id} name="workoutTypes" onChange={handleCheckbox}></input>
     </>
   )
 }

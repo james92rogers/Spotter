@@ -68,7 +68,7 @@ const CreateSpotMe = () => {
   }
 
   return (
-    <div>
+    <div className="spotme-form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="headline">Headline:</label>
         <input onChange={handleChange} type='text' name='headline' id='headline' placeholder='e.g Looking for Running Partner'></input>
@@ -83,10 +83,10 @@ const CreateSpotMe = () => {
           ))}
         </div>
         <label htmlFor="message">Message:</label>
-        <input onChange={handleChange} type='text-area' name='message' id='message' placeholder='e.g Searching for someone local who would like to go running a few nights a week.'></input>
+        <textarea onChange={handleChange} name='message' id='message' placeholder='e.g Searching for someone local who would like to go running a few nights a week.'></textarea>
         <label htmlFor="searchingFor">Searching For:</label>
         <input onChange={handleChange} type='text' name='searchingFor' id='searchingFor' placeholder='e.g Groups, 1-to-1'></input>
-        <input type='submit' value='Create Spot Me!'></input>
+        <input className="submit" type='submit' value='Create Spot Me!'></input>
       </form>
       {error ? (
         <div className='error'>

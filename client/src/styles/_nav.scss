@@ -1,17 +1,117 @@
-.navbar {
+nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  background-color: lightblue;
-  height: 40px;
-  margin-bottom: 50px;
+  width: 800px;
 
-  .search-area form {
+  .navbar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $persian-green;
+    height: 50px;
+    margin-bottom: 50px;
+    padding: 0;
+
+    .search-area form {
+      display: flex;
+
+      .select-type {
+        font-size: 14px;
+        background-color: $persian-green;
+        color: white;
+        border: none;
+        margin-right: 5px;
+      }
+
+      .text-input {
+        border: 1px solid $charcoal;
+        background-color: $persian-green;
+        color: white;
+        font-size: 14px;
+        margin-right: 5px;
+      }
+
+      .form-field-submit {
+        padding: 0;
+
+        input {
+          font-size: 14px;
+          padding: 2px 5px;
+          color: white;
+          background-color: $charcoal;
+          border: none;
+        }
+
+        input:hover {
+          color: $charcoal;
+          background-color: white;
+        }
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .nav-messages {
+      display: flex;
+      margin: 0;
+      cursor: pointer;
+
+      i {
+        font-size: 35px;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+      .unread {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $charcoal;
+        color: white;
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        left: -27px;
+        top: 9px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.offcanvas {
+  background-color: $charcoal;
+
+  ul {
+    list-style: none;
+    margin-top: 40px;
   }
 
-  .nav-links {
-    display: flex;
-    justify-content: space-evenly;
+  a {
+    color: $light-green;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: $light-green;
+    padding: 0;
+  }
+
+  a:hover,
+  button:hover {
+    color: $persian-green;
   }
 }

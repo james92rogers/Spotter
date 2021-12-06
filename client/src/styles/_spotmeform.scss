@@ -1,0 +1,58 @@
+.spotme-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: $light-green;
+    }
+
+    input {
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: white;
+      border: 1px solid $persian-green;
+      background-color: transparent;
+    }
+
+    textarea {
+      height: 80px;
+      border: 1px solid $persian-green;
+      background-color: transparent;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .checkboxes {
+      p {
+        color: $light-green;
+      }
+
+      label {
+        color: white;
+        padding-right: 7px;
+      }
+
+      .checkbox {
+        margin-right: 15px;
+      }
+    }
+
+    .submit {
+      width: 150px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .submit:hover {
+      color: $charcoal;
+      background-color: white;
+      border: 1px solid white;
+    }
+  }
+}

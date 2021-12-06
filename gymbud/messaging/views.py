@@ -10,7 +10,6 @@ from rest_framework.exceptions import NotFound
 
 
 class MessageDetailView(APIView):
-    permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk):
         message = Message.objects.get(id=pk)
@@ -28,9 +27,21 @@ class MessageDetailView(APIView):
         message.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    def put(self, request, pk):
+        message = Message.objects.get(id=pk)
+        if message.receiver != request.user:
+            raise PermissionDenied()
+        request.data["sender"] = message.sender.id
+        request.data["receiver"] = message.receiver.id
+        updated_message = MessageSerializer(message, data=request.data)
+        if updated_message.is_valid():
+            updated_message.save()
+            return Response(updated_message.data, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(updated_message.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 class MessageListView(APIView):
-    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         messages = Message.objects.all()

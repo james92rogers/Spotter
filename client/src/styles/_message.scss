@@ -1,0 +1,50 @@
+.single-message {
+  display: flex;
+  border: 1px solid $persian-green;
+  width: 800px;
+
+  .message-picture {
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    margin-right: 10px;
+  }
+
+  .message-info {
+    width: 580px;
+    position: relative;
+    color: $persian-green;
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      padding-top: 5px;
+
+      .options {
+        display: flex;
+
+        p {
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .sender {
+      margin-bottom: 10px;
+      border-top: 1px solid grey;
+    }
+
+    .date {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+
+      p {
+        padding-left: 15px;
+      }
+    }
+  }
+}

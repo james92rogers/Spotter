@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/workouts/', include('workouts.urls')),
     path('api/spotme/', include('spotmes.urls')),
     path('api/shouts/', include('shouts.urls')),
-    path('api/messages/', include('messaging.urls')),
+    path('api/messages/', include('inbox.urls')),
     path('api/likes/', include('likes.urls'))
 
 ]

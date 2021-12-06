@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { getToken } from './auth'
-
+import Cookies from 'js-cookie'
+const csrftoken = Cookies.get('csrftoken')
 
 const baseUrl = '/api'
 
@@ -8,6 +9,50 @@ export const getUsers = async () => {
   const config = {
     method: 'get',
     url: `${baseUrl}/users/`,
+    headers: {},
+  }
+  
+  const response = await axios(config)
+  return response.data
+}
+
+export const getUser = async (id) => {
+  const config = {
+    method: 'get',
+    url: `${baseUrl}/users/${id}`,
+    headers: {},
+  }
+  
+  const response = await axios(config)
+  return response.data
+}
+
+export const getMessages = async () => {
+  const config = {
+    method: 'get',
+    url: `${baseUrl}/messages/`,
+    headers: {},
+  }
+  
+  const response = await axios(config)
+  return response.data
+}
+
+export const getMessage = async (id) => {
+  const config = {
+    method: 'get',
+    url: `${baseUrl}/messages/${id}/`,
+    headers: {},
+  }
+  
+  const response = await axios(config)
+  return response.data
+}
+
+export const changeMessage = async (id) => {
+  const config = {
+    method: 'put',
+    url: `${baseUrl}/messages/${id}/`,
     headers: {},
   }
   
@@ -30,7 +75,9 @@ export const login = async (data) => {
     method: 'post',
     url: `${baseUrl}/users/login/`,
     headers: {
+      Authorization: `Bearer ${getToken()}`,
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrftoken,
     },
     data,
 
@@ -70,7 +117,6 @@ export const addSpotMe = async (data) => {
 
 const makeAxiosRequest = async (url, data) => {
   const config = getAxiosRequestConfig(url, data)
-  console.log('config: ' + config)
   const response = await axios(config)
   return response.data
 }

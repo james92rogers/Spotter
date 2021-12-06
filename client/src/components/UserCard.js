@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const UserCard = ({ username, image, bio, city, postcode, workoutTypes }) => {
+export const UserCard = ({ id, username, image, bio, city, postcode, workoutTypes }) => {
     
   return (
     <div className='user-card'>
@@ -9,7 +10,7 @@ export const UserCard = ({ username, image, bio, city, postcode, workoutTypes })
       </div>
       <div className='user-card-info'>
         <div className='top-line'>
-          <h4>{username}</h4>
+          <h4><Link to={`/users/${id}`}>{username}</Link></h4>
           <p>Get in touch!</p>
         </div>
         <div className='bio'>

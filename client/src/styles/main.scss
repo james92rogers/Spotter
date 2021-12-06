@@ -1,10 +1,30 @@
-@import "nav";
-@import "header";
-@import "search";
-@import "shouts";
-@import "spotmes";
+@import "~bootstrap/scss/bootstrap";
+@import "colours";
+
+//@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $charcoal;
+}
+
+p {
+  margin: 0;
+}
+
+@import "nav";
+@import "header";
+@import "search";
+@import "shouts";
+@import "spotmes";
+@import "profile";
+@import "inbox";
+@import "message";
+@import "spotmeform";

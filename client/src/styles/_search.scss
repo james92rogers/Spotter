@@ -21,6 +21,7 @@
   }
 
   .user-card-info {
+    color: $persian-green;
     display: flex;
     width: 480px;
     height: 140px;
@@ -32,6 +33,11 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 5px;
+
+      a {
+        color: $persian-green;
+        text-decoration: none;
+      }
     }
 
     .bio {

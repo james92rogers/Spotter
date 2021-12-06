@@ -1,18 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { getUserId } from '../helpers/auth'
+import { getDate, getTime } from '../helpers/date'
 
-const ShoutCard = ({ owner, message, created }) => {
+/*eslint camelcase: ["error", {allow: ["like_set"]}]*/
+
+const ShoutCard = ({ owner, message, created, like_set }) => {
 
   const userId = getUserId()
-
-  const day = created.slice(8, 10)
-  const month = created.slice(5, 7)
-  const year = created.slice(2, 4)
-
-  const date = `${day}.${month}.${year}`
-
-  const time = created.slice(11, 16)
-  console.log(time + date)
+  
+  const date = getDate(created)
+  const time = getTime(created)
 
 
   return (
@@ -21,7 +19,7 @@ const ShoutCard = ({ owner, message, created }) => {
       </div>
       <div className="shout-info">
         <div className='top-row'>
-          <h4>{owner.username}</h4>
+          <p><Link to={`/users/${owner.id}`}>{owner.username}</Link></p>
           <div className="date">
             <p>{time}</p>
             <p>{date}</p>
@@ -30,14 +28,18 @@ const ShoutCard = ({ owner, message, created }) => {
         <div className='shout-message'>
           <p>{message}</p>
         </div>
-        {userId == owner.id ?
-          <div className='user-links'>
-            <p>Edit Shout</p>
-            <p>Delete Shout</p>
+        <div className='user-links'>
+          <div className='likes'>
+            <p>{like_set.length}</p>
+            <i className="fas fa-thumbs-up"></i>
           </div>
-          :
-          <></>
-        }
+          <p>Like</p>
+          {userId == owner.id ?
+            <p>Delete</p>
+            :
+            <></>
+          }
+        </div>
 
       </div>
     </div>

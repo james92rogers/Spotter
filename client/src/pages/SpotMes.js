@@ -27,7 +27,20 @@ const SpotMes = () => {
       <div className='spotme-options'>
         <div className='filters'>
           <p>Currently filtering by your {filter}</p>
-
+          <form>
+            <div className='radio'>
+              <div className='city-options'>
+                <label htmlFor='city'>City</label>
+                <input type='radio' id='city' value='city' name='filter'></input>
+              </div>
+              <div className='area-options'>
+                <label htmlFor='area'>Area</label>
+                <input type='radio' id='area' value='area' name='filter'></input>
+              </div>
+              <input className= 'search' type='text' name="search" placeholder='e.g Manchester?'></input> 
+            </div>
+            <input className='submit' type='submit' value='Submit'></input>
+          </form>
         </div>
         <p><Link to='/spotmes/add'>Add a Spot Me!</Link></p>
       </div>

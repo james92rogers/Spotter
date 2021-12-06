@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 from spotmes.serializers import SpotMeSerializer
 from shouts.serializers import ShoutSerializer
 from workouts.serializers import WorkoutSerializer
-from messaging.serializers import MessageSerializer
+from inbox.serializers import MessageSerializer
 
 User = get_user_model()
 
@@ -42,7 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
 class MinimalUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username')
+        fields = ('id', 'username', 'image',)
 
 
 class PopulatedUserSerializer(UserSerializer):

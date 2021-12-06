@@ -11,14 +11,20 @@ class JWTAuthentication(BasicAuthentication):
     def authenticate(self, request):
         print("**********authenticate started**********")
         header = request.headers.get('Authorization')
+        print(header)
+        print("***********1**********")
         if not header:
             return None
+        print("***********2**********")
         if header.startswith('Basic'):
             return None
+        print("***********3**********")
         if not header.startswith('Bearer'):
             raise PermissionDenied({'message': 'Invalid authorization header'})
+        print("***********4**********")
         print("********** cleared if statements **********")
         token = header.replace('Bearer ', '')
+        print("***********5**********")
         try:
             payload = jwt.decode(
                 token, settings.SECRET_KEY, algorithms=['HS256'])
