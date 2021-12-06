@@ -36,6 +36,7 @@ const Login = () => {
       setIsError(true)
     }
   }
+  
   const handleFormChange = (event) => {
     const { name, value } = event.target
     setData({
@@ -43,7 +44,6 @@ const Login = () => {
       [name]: value,
     })
   }
-
 
   const formInputProps = { data, errorInfo, handleFormChange }
 

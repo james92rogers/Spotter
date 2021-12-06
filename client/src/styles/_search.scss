@@ -12,6 +12,7 @@
   height: 150px;
   border: 1px solid grey;
   margin-bottom: 20px;
+  background-color: $light-green;
 
   .user-card-image {
     width: 85px;
@@ -21,7 +22,7 @@
   }
 
   .user-card-info {
-    color: $persian-green;
+    color: $charcoal;
     display: flex;
     width: 480px;
     height: 140px;

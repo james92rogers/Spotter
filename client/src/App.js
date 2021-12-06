@@ -14,6 +14,7 @@ import CreateSpotMe from './pages/CreateSpotMe'
 import Profile from './pages/Profile'
 import Inbox from './pages/Inbox'
 import SingleMessage from './pages/SingleMessage'
+import EditProfile from './pages/EditProfile'
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
           <Route path='/users/:id' element={<Profile />}></Route>          
           <Route path='/inbox/:id' element={<SingleMessage />}></Route>
           <Route path='/inbox' element={<Inbox />}></Route>
+          <Route path='/profile/edit' element={<EditProfile />}></Route>
           <Route exact path='/' element={<Home />}></Route>
         </Routes>
 

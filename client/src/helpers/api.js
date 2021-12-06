@@ -19,8 +19,24 @@ export const getUsers = async () => {
 export const getUser = async (id) => {
   const config = {
     method: 'get',
-    url: `${baseUrl}/users/${id}`,
+    url: `${baseUrl}/users/${id}/`,
     headers: {},
+  }
+  
+  const response = await axios(config)
+  return response.data
+}
+
+export const editUser = async (id, data) => {
+  const config = {
+    method: 'put',
+    url: `${baseUrl}/users/${id}/`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrftoken,
+    },
+    data,
   }
   
   const response = await axios(config)
@@ -128,6 +144,7 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
     headers: {
       Authorization: `Bearer ${getToken()}`,
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrftoken,
     },
     data,
   }

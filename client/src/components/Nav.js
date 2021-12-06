@@ -13,8 +13,6 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   const [messages, setMessages] = useState([])
   const [unreadMessages, setUnreadMessages] = useState([])
   const [url, setUrl] = useState(null)
- 
-
   const [data, setData] = useState({
     type: null,
     search: null,
@@ -97,6 +95,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
           {isLoggedIn ?
             <>
               <li>Profile</li>
+              <li><Link onClick={handleClose} to='/profile/edit'>Edit Profile</Link></li>
               <button onClick={handleLogout}>Logout</button>
             </>
             :

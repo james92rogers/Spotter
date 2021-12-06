@@ -1,0 +1,17 @@
+.edit-profile-form {
+  color: white;
+
+  form {
+    display: flex;
+
+    .edit-image {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edit-info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
