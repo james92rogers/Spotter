@@ -91,12 +91,9 @@ export const login = async (data) => {
     method: 'post',
     url: `${baseUrl}/users/login/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`,
       'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': csrftoken,
     },
     data,
-
   }
   const response = await axios(config)
   return response.data
