@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { register } from '../helpers/api'
-import FormInput from '../components/FormInput'
+import TextInput from '../components/TextInput'
 
 const Register = () => {
 
@@ -10,8 +10,12 @@ const Register = () => {
     email: '',
     password: '',
     password_confirmation: '',
+    city: '',
+    postcode: '',
+    gender: '',
+
   })
-  const [errorInfo, setErrorInfo] = useState({})
+
   const [isError, setIsError] = useState(false)
 
   const navigate = useNavigate()
@@ -29,7 +33,6 @@ const Register = () => {
 
   const handleError = (error) => {
     if (error.response) {
-      setErrorInfo(error.response.data)
       setIsError(true)
     }
   }
@@ -42,36 +45,27 @@ const Register = () => {
     })
   }
 
-  const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <section className="login">
+    <section className="auth-page">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
-        <FormInput
-          placeholder='username'
-          type='text'
-          name='username'
-          {...formInputProps}
-        />
-        <FormInput
-          placeholder='email@email.com'
-          type='email'
-          name='email'
-          {...formInputProps}
-        />
-        <FormInput
-          placeholder='password'
-          type='password'
-          name='password'
-          {...formInputProps}
-        />
-        <FormInput
-          placeholder='password again'
-          type='password'
-          name='password_confirmation'
-          {...formInputProps}
-        />
+        <TextInput name ='username' title='Username:' func={handleFormChange} placeholder='Enter desired username here' />
+        <label htmlFor='email'>Email Address:</label>
+        <input type='email' name='email' id='email' onChange={handleFormChange} placeholder='Enter valid email address here' />
+        <label htmlFor='password'>Password:</label>
+        <input type='password' name='password' id='password' onChange={handleFormChange} placeholder='Write password here' />
+        <label htmlFor='password_confirmation'>Password Confirmation:</label>
+        <input type='password' name='password_confirmation' id='password_confirmation' onChange={handleFormChange} placeholder='Confirm your password' />
+        <TextInput name='city' title='City:' func={handleFormChange} placeholder='e.g London' />
+        <TextInput name='postcode' title='Area:' func={handleFormChange} placeholder='e.g SW16' />
+        <label htmlFor='gender'>What gender do you identify as:</label>
+        <select id='gender' name='gender' onChange={handleFormChange}>
+          <option>-Select Gender-</option>
+          <option value='male'>Male</option>
+          <option value='female'>Female</option>
+          <option value='non-binary'>Non-Binary</option>
+        </select>
         <div className='submit-section'>
           <input type='submit' value='Register' />
         </div>

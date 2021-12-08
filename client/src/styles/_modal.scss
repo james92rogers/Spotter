@@ -1,0 +1,31 @@
+.modal-content {
+  background-color: $persian-green;
+  color: $light-charcoal;
+  border: 2px solid $light-green;
+  font-family: $raleway;
+
+  input,
+  textarea {
+    background-color: $background;
+    color: $light-green;
+    border: 1px solid white;
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+
+  textarea {
+    margin-bottom: 0;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: $light-green;
+  }
+
+  button:hover {
+    color: $light-charcoal;
+  }
+}

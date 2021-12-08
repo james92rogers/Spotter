@@ -13,6 +13,7 @@ const Inbox = () => {
       const user = getUserId()
       const allMessages = await getMessages()
       const userMessages = allMessages.filter(message => message.receiver.id === Number(user))
+      userMessages.sort((a, b) => (a.created > b.created ? -1 : 1))
       setMessages(userMessages)
       setPageLoad(true)
     }

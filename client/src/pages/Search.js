@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import UserCard from '../components/UserCard'
-import { getGender, getSearch, getSearchType } from '../helpers/auth'
+import { getGender, getSearch, getSearchType, getUserId } from '../helpers/auth'
 
 const Search = () => {
   const [users, setUsers] = useState([])
@@ -11,6 +11,7 @@ const Search = () => {
     const searchType = getSearchType()
     const search = getSearch()
     const userGender = getGender()
+    const userId = getUserId()
     let filteredUsers = []
     let filteredGenderUsers = []
 
@@ -34,8 +35,9 @@ const Search = () => {
       }
 
       const filteredSearchingUsers = filteredGenderUsers.filter(user => user.isSearching === true)
-      //setUsers(res.data)
-      setUsers(filteredSearchingUsers)
+      const removeUserFromSearch = filteredSearchingUsers.filter(user => user.id !== Number(userId))
+  
+      setUsers(removeUserFromSearch)
     }
     getData()
   }, [])

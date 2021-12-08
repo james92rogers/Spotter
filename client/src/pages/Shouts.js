@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ShoutCard from '../components/ShoutCard'
 import Modal from 'react-bootstrap/Modal'
-import { addShout } from '../helpers/api'
+import { addShout, getUser } from '../helpers/api'
+import { getUserId } from '../helpers/auth'
 
 const Shouts = () => {
   const [shouts, setShouts] = useState([])
   const [show, setShow] = useState(false)
   const [error, setError] = useState(false)
+  const userId = getUserId()
   const [data, setData] = useState({
     message: null,
   })
@@ -43,9 +45,12 @@ const Shouts = () => {
 
   useEffect(() => {
     const getData = async () => {
-
       const res = await axios.get('/api/shouts/')
-      setShouts(res.data)
+      const user = await getUser(Number(userId))
+      const userFollowingIds = user.following.map(following => following.id)
+      const followerShouts = res.data.filter(shout => (userFollowingIds.includes(shout.owner.id)) || (shout.owner.id === user.id))
+      followerShouts.sort((a, b) => (a.created > b.created ? -1 : 1))
+      setShouts(followerShouts)
     }
     getData()
   }, [])
@@ -70,13 +75,12 @@ const Shouts = () => {
       </div>
       <>
         
-
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Create a shout</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input onChange={handleChange} type='text-area' name='message' placeholder='What would you like to shout about?'></input>
+            <textarea onChange={handleChange} type='text' name='message' placeholder='What would you like to shout about?'></textarea>
           </Modal.Body>
           <Modal.Footer>
             <button variant="secondary" onClick={handleSubmit}>

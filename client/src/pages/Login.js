@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../helpers/api'
-import { setGender, setToken, setUserId } from '../helpers/auth'
-import FormInput from '../components/FormInput'
+import { setCity, setGender, setToken, setUserId } from '../helpers/auth'
 
-const Login = () => {
+
+
+const Login = ({ setIsLoggedIn }) => {
 
   const [data, setData] = useState({
     email: '',
     password: '',
   })
 
-  const [errorInfo, setErrorInfo] = useState({})
+
   const [isError, setIsError] = useState(false)
 
   const navigate = useNavigate()
@@ -20,11 +21,14 @@ const Login = () => {
     event.preventDefault()
     console.log(data)
     login(data).then(handleSuccessfulLogin).catch(handleError)
+
   }
-  const handleSuccessfulLogin = ({ token, id, gender }) => {
+  const handleSuccessfulLogin = ({ token, id, gender, city }) => {
     setToken(token)
     setUserId(id)
     setGender(gender)
+    setCity(city)
+    setIsLoggedIn(true)
     setIsError(false)
     console.log('successful login')
     navigate('/')
@@ -32,7 +36,6 @@ const Login = () => {
   const handleError = (error) => {
     if (error.response) {
       console.log('error logging in')
-      setErrorInfo(error.response.data)
       setIsError(true)
     }
   }
@@ -45,24 +48,13 @@ const Login = () => {
     })
   }
 
-  const formInputProps = { data, errorInfo, handleFormChange }
-
   return (
-    <section className="login">
+    <section className="auth-page">
       <form onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <FormInput
-          placeholder='email'
-          type='email'
-          name='email'
-          {...formInputProps}
-        />
-        <FormInput
-          placeholder='password'
-          type='password'
-          name='password'
-          {...formInputProps}
-        />
+        <h2>Sign In</h2>
+        <input type='email' name='email' placeholder='email' onChange={handleFormChange}/>
+        <input type='password' name='password' placeholder='password' onChange={handleFormChange}/>
+
         <div className='submit-section'>
           <input type='submit' value='Login' />
         </div>

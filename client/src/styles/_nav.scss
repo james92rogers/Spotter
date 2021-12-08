@@ -27,7 +27,7 @@ nav {
       .text-input {
         border: 1px solid $charcoal;
         background-color: $persian-green;
-        color: white;
+        color: $light-green;
         font-size: 14px;
         margin-right: 5px;
       }
@@ -38,14 +38,13 @@ nav {
         input {
           font-size: 14px;
           padding: 2px 5px;
-          color: white;
+          color: $persian-green;
           background-color: $charcoal;
           border: none;
         }
 
         input:hover {
-          color: $charcoal;
-          background-color: white;
+          background-color: $light-green;
         }
       }
     }
@@ -62,7 +61,7 @@ nav {
 
       i {
         font-size: 35px;
-        color: white;
+        color: $light-green;
         margin: 0;
         padding: 0;
       }
@@ -70,8 +69,8 @@ nav {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $charcoal;
-        color: white;
+        background-color: $persian-green;
+        color: $light-charcoal;
         border-radius: 10px;
         width: 20px;
         height: 20px;

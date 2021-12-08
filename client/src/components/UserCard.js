@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 export const UserCard = ({ id, username, image, bio, city, postcode, workoutTypes }) => {
+
     
   return (
     <div className='user-card'>
@@ -11,13 +13,16 @@ export const UserCard = ({ id, username, image, bio, city, postcode, workoutType
       <div className='user-card-info'>
         <div className='top-line'>
           <h4><Link to={`/users/${id}`}>{username}</Link></h4>
-          <p>Get in touch!</p>
+        </div>
+        <div className='location-line'>
+          <p><span className='key'>City:</span> {city}</p>
+          <p><span className='key'>Area:</span> {postcode}</p>
         </div>
         <div className='bio'>
           <p>{bio}</p>
         </div>
         <div className='workouts'>
-          <p>Workout Types:</p>
+          <p className='key'>Workout Types:</p>
           <div className='workout-types'>
             {workoutTypes.length === 0 ?
               <p>no workout types declared</p>
@@ -27,10 +32,6 @@ export const UserCard = ({ id, username, image, bio, city, postcode, workoutType
               ))
             }
           </div>
-        </div>
-        <div className='bottom-line'>
-          <p>{city}</p>
-          <p>{postcode}</p>
         </div>
       </div>
     </div>

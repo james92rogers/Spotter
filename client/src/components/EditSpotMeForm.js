@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { addSpotMe } from '../helpers/api'
+import { editSpotMe } from '../helpers/api'
 import { useNavigate } from 'react-router'
-import WorkoutCheckbox from '../components/WorkoutCheckbox'
+import WorkoutCheckbox from './WorkoutCheckbox'
 import axios from 'axios'
-import TextInput from '../components/TextInput'
+import TextInput from './TextInput'
 
 
-const CreateSpotMe = () => {
+const EditSpotMe = ({ id, headline, location, postcode, message, searchingFor }) => {
 
   const [data, setData] = useState({
     workoutTypes: [],
-    headline: null,
-    location: null,
-    postcode: null,
-    message: null,
-    searchingFor: null,
+    headline,
+    location,
+    postcode,
+    message,
+    searchingFor,
   })
 
   const [error, setError] = useState(false)
@@ -30,8 +30,6 @@ const CreateSpotMe = () => {
 
   },[])
 
-
-  
   const handleError = (error) => {
     if (error.response) {
       console.log(error.response.data)
@@ -65,16 +63,16 @@ const CreateSpotMe = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log(data)
-    addSpotMe(data).then(handleSuccessfulSpotMe).catch(handleError)
+    editSpotMe(id, data).then(handleSuccessfulSpotMe).catch(handleError)
   }
 
   return (
     <div className="spotme-form">
       <form onSubmit={handleSubmit}>
-        <h2>Create Spot Me</h2>
-        <TextInput name='headline' title='Headline:' func={handleChange} placeholder= 'e.g Looking for Running Partner' />
-        <TextInput name='location' title='City:' func={handleChange} placeholder= 'e.g London' />
-        <TextInput name='postcode' title='Area:' func={handleChange} placeholder= 'e.g SW16' />
+        <h2>Edit Spot Me</h2>
+        <TextInput name='headline' title='Headline:' func={handleChange} placeholder={headline} />
+        <TextInput name='location' title='City:' func={handleChange} placeholder={location} />
+        <TextInput name='postcode' title='Area:' func={handleChange} placeholder={postcode} />
         <div className='checkboxes'>
           <p>Select the Workout Types that apply:</p>
           <div className='workouts'>
@@ -84,8 +82,8 @@ const CreateSpotMe = () => {
           </div>
         </div>
         <label htmlFor="message">Message:</label>
-        <textarea onChange={handleChange} name='message' id='message' placeholder='e.g Searching for someone local who would like to go running a few nights a week.'></textarea>
-        <TextInput name='searchingFor' title='Searching For:' func={handleChange} placeholder= 'e.g Groups, 1-to-1' />
+        <textarea onChange={handleChange} name='message' id='message' placeholder={message}></textarea>
+        <TextInput name='searchingFor' title='Searching For:' func={handleChange} placeholder={searchingFor} />
         <input className="submit" type='submit' value='Create Spot Me'></input>
       </form>
       {error ? (
@@ -99,4 +97,4 @@ const CreateSpotMe = () => {
   )
 }
 
-export default CreateSpotMe
+export default EditSpotMe

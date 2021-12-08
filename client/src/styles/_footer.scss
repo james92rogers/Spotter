@@ -1,0 +1,26 @@
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  color: $light-green;
+  background-color: $persian-green;
+  padding: 5px 10px;
+  font-family: $raleway;
+
+  p {
+    font-size: 14px;
+  }
+
+  .links {
+    display: flex;
+  }
+
+  a {
+    color: $light-green;
+    margin-right: 10px;
+  }
+
+  p {
+    margin-right: 10px;
+  }
+}

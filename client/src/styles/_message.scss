@@ -1,7 +1,21 @@
+.return a {
+  color: $persian-green;
+  text-decoration: none;
+  position: relative;
+  top: -40px;
+}
+
+.return a:hover {
+  color: $light-green;
+}
+
 .single-message {
   display: flex;
   border: 1px solid $persian-green;
   width: 800px;
+  font-family: $raleway;
+  color: $light-green;
+  background-color: $background;
 
   .message-picture {
     height: 200px;
@@ -13,26 +27,59 @@
   .message-info {
     width: 580px;
     position: relative;
-    color: $persian-green;
 
     .top-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 5px;
+      align-items: center;
       padding-top: 5px;
+
+      .headline {
+        font-weight: bold;
+        color: $light-charcoal;
+        font-size: 18px;
+      }
 
       .options {
         display: flex;
+        font-size: 14px;
 
         p {
           padding-left: 10px;
+        }
+
+        button {
+          background-color: transparent;
+          border: none;
+          color: $light-green;
+          padding: 0;
+        }
+
+        p:hover,
+        button:hover {
+          color: $light-charcoal;
         }
       }
     }
 
     .sender {
       margin-bottom: 10px;
-      border-top: 1px solid grey;
+      border-bottom: 1px solid $light-charcoal;
+      padding-bottom: 5px;
+
+      a {
+        color: $light-green;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: $light-charcoal;
+      }
+    }
+
+    .message {
+      font-style: italic;
+      font-size: 16px;
     }
 
     .date {
@@ -44,6 +91,7 @@
 
       p {
         padding-left: 15px;
+        font-family: sans-serif;
       }
     }
   }

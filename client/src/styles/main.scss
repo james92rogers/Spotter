@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "colours";
+@import "fonts";
 
 //@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -19,6 +20,25 @@ p {
   margin: 0;
 }
 
+.page-container {
+  position: relative;
+  min-height: 75vh;
+}
+
+.content-wrap {
+  padding-bottom: 30px;
+}
+
+.footer-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+header img {
+  width: 200px;
+}
+
 @import "nav";
 @import "header";
 @import "search";
@@ -29,3 +49,8 @@ p {
 @import "message";
 @import "spotmeform";
 @import "editProfile";
+@import "modal";
+@import "register";
+@import "home";
+@import "about";
+@import "footer";

@@ -2,14 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 
   form {
     width: 400px;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+    background-color: $background;
+    padding: 10px;
+
+    h2 {
+      color: $light-charcoal;
+    }
 
     label {
-      color: $light-green;
+      color: $charcoal;
     }
 
     input {
@@ -30,29 +38,34 @@
 
     .checkboxes {
       p {
-        color: $light-green;
+        color: $charcoal;
+      }
+
+      .workouts {
+        display: flex;
+        flex-wrap: wrap;
       }
 
       label {
-        color: white;
+        color: $light-green;
         padding-right: 7px;
       }
 
       .checkbox {
-        margin-right: 15px;
+        margin-right: 10px;
       }
     }
 
     .submit {
-      width: 150px;
-      margin: 0 auto;
+      width: 120px;
       margin-top: 20px;
+      color: $persian-green;
+      background-color: $light-charcoal;
+      padding: 2px 5px;
     }
 
     .submit:hover {
-      color: $charcoal;
-      background-color: white;
-      border: 1px solid white;
+      background-color: $light-green;
     }
   }
 }

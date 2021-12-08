@@ -1,16 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { deleteShout, addLike, getLikes, deleteLike } from '../helpers/api'
 import { getUserId } from '../helpers/auth'
 import { getDate, getTime } from '../helpers/date'
 
 /*eslint camelcase: ["error", {allow: ["like_set"]}]*/
 
-const ShoutCard = ({ owner, message, created, like_set }) => {
+const ShoutCard = ({ owner, message, created, like_set, id }) => {
 
   const userId = getUserId()
-  
   const date = getDate(created)
   const time = getTime(created)
+  const [hasRated, setHasRated] = useState(false)
+
+  useEffect(() => {
+    const userLikeCheck = like_set.filter(like => like.owner === Number(userId))
+    if (userLikeCheck.length > 0) setHasRated(true)
+
+  }, [])
+
+  const handleDelete = async () => {
+    await deleteShout(id)
+    window.location.reload(false)
+  }
+
+  const handleAddLike = async () => {
+    await addLike(id)
+    window.location.reload(false)
+  }
+
+  const handleDeleteLike = async () => {
+    const allLikes = await getLikes()
+    const likeToDelete = allLikes.filter(like => like.owner.id === Number(userId) && like.shout.id === id)
+    await deleteLike(likeToDelete[0].id)
+    window.location.reload(false)
+
+  }
 
 
   return (
@@ -33,9 +58,13 @@ const ShoutCard = ({ owner, message, created, like_set }) => {
             <p>{like_set.length}</p>
             <i className="fas fa-thumbs-up"></i>
           </div>
-          <p>Like</p>
+          {hasRated ?
+            <p className='user-link' onClick={handleDeleteLike}>Unlike</p>
+            :
+            <p className='user-link' onClick={handleAddLike}>Like</p>
+          }
           {userId == owner.id ?
-            <p>Delete</p>
+            <p className='user-link' onClick={handleDelete}>Delete</p>
             :
             <></>
           }

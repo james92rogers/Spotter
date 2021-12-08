@@ -1,5 +1,6 @@
 .shout-page {
   width: 800px;
+  font-family: $raleway;
 
   .create-link {
     position: relative;
@@ -31,13 +32,16 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    border: 1px solid $persian-green;
     position: relative;
+    background-color: $background;
+    border-radius: 5px;
 
     .shout-image {
       height: 80px;
       width: 80px;
       background-size: cover;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
     }
 
     .shout-info {
@@ -53,21 +57,20 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-bottom: 5px;
-        border-bottom: 1px solid $persian-green;
+        margin-bottom: 4px;
+        border-bottom: 1px solid $light-charcoal;
 
         a {
           margin-bottom: 0;
-          color: $light-green;
+          color: $light-charcoal;
           text-decoration: none;
-          font-size: 16px;
+          font-size: 18px;
           padding: none;
           padding-left: 5px;
-          font-weight: bold;
         }
 
         a:hover {
-          color: white;
+          color: $light-green;
         }
       }
 
@@ -75,12 +78,13 @@
         display: flex;
         justify-content: flex-end;
         width: 150px;
+        font-family: sans-serif;
 
         p {
-          padding: 0 10px 0 5px;
+          padding: 5px 5px 0 5px;
           margin-bottom: 0;
-          color: white;
-          font-size: 14px;
+          color: $charcoal2;
+          font-size: 12px;
         }
       }
 
@@ -91,6 +95,7 @@
           margin-bottom: 0;
           font-size: 14px;
           color: white;
+          padding: 0 5px;
         }
       }
 
@@ -100,6 +105,10 @@
         position: absolute;
         bottom: 2px;
         right: 5px;
+
+        .user-link {
+          cursor: pointer;
+        }
 
         p {
           padding-left: 10px;
@@ -119,29 +128,5 @@
         }
       }
     }
-  }
-}
-
-.modal-content {
-  background-color: $persian-green;
-  color: white;
-
-  input {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    width: 450px;
-    margin: 0 auto;
-    padding: 5px;
-  }
-
-  button {
-    border: none;
-    background-color: transparent;
-    color: white;
-  }
-
-  button:hover {
-    color: $charcoal;
   }
 }

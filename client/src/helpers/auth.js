@@ -57,3 +57,15 @@ export const setGender = (gender) => {
 export const removeGender = () => {
   window.localStorage.removeItem('gender')
 }
+
+export const getCity = () => {
+  return window.localStorage.getItem('city')
+}
+  
+export const setCity = (city) => {
+  window.localStorage.setItem('city', city)
+}
+  
+export const removeCity = () => {
+  window.localStorage.removeItem('city')
+}

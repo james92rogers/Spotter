@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -15,6 +14,10 @@ import Profile from './pages/Profile'
 import Inbox from './pages/Inbox'
 import SingleMessage from './pages/SingleMessage'
 import EditProfile from './pages/EditProfile'
+import EditSpotMe from './pages/EditSpotMe'
+import About from './pages/About'
+import Footer from './components/Footer'
+import Logo from './assets/spotterlogo5.png'
 
 
 function App() {
@@ -24,46 +27,47 @@ function App() {
 
 
   useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/api/users/') // * <-- replace with your endpoint
-      console.log(res.data)
-    }
-
+    
     if (getToken()) {
       setIsLoggedIn(true)
     } else {
       setIsLoggedIn(false)
     }
-
-    getData()
+    
 
   }, [])
 
   return (
     <Router>
       <header className='app-header'>
-        <h1>GymBud</h1>
+        <img src={Logo}/>
       </header>
       <nav>
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  
           user={user} setUser={setUser}/>
       </nav>
       <main>
-        <Routes>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
-          <Route path='/search' element={<Search />}></Route>
-          <Route path='/shouts/add' element={<CreateShout />}></Route>
-          <Route path='/shouts' element={<Shouts />}></Route>
-          <Route path='/spotmes/add' element={<CreateSpotMe />}></Route>
-          <Route path='/spotmes' element={<SpotMes />}></Route>
-          <Route path='/users/:id' element={<Profile />}></Route>          
-          <Route path='/inbox/:id' element={<SingleMessage />}></Route>
-          <Route path='/inbox' element={<Inbox />}></Route>
-          <Route path='/profile/edit' element={<EditProfile />}></Route>
-          <Route exact path='/' element={<Home />}></Route>
-        </Routes>
-
+        <div className='page-container'>
+          <div className='content-wrap'>
+            <Routes>
+              <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
+              <Route path='/register' element={<Register />}></Route>
+              <Route path='/search' element={<Search />}></Route>
+              <Route path='/shouts/add' element={<CreateShout />}></Route>
+              <Route path='/shouts' element={<Shouts />}></Route>
+              <Route path='/spotmes/add' element={<CreateSpotMe />}></Route>
+              <Route path='/spotmes/edit/:id' element={<EditSpotMe />}></Route>
+              <Route path='/spotmes' element={<SpotMes />}></Route>
+              <Route path='/users/:id' element={<Profile />}></Route>          
+              <Route path='/inbox/:id' element={<SingleMessage />}></Route>
+              <Route path='/inbox' element={<Inbox />}></Route>
+              <Route path='/profile/edit' element={<EditProfile />}></Route>
+              <Route path='/about' element={<About />}></Route>
+              <Route exact path='/' element={<Home isLoggedIn={isLoggedIn}/>}></Route>
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </main>
     </Router>
   )

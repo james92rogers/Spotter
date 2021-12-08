@@ -1,0 +1,62 @@
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: $background;
+    border-radius: 5px;
+    color: $light-green;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    color: $light-charcoal;
+  }
+
+  label {
+    color: $charcoal;
+    margin-bottom: 3px;
+  }
+
+  input,
+  select {
+    margin-bottom: 5px;
+    background-color: transparent;
+    border: 1px solid $charcoal;
+    color: $light-green;
+  }
+
+  .submit-section {
+    margin-top: 15px;
+
+    input {
+      background-color: $charcoal;
+      border: none;
+      color: $persian-green;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    input:hover {
+      background-color: $light-green;
+    }
+  }
+
+  .signup {
+    color: $light-green;
+  }
+
+  a {
+    color: $persian-green;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

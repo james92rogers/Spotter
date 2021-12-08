@@ -1,17 +1,118 @@
 .edit-profile-form {
-  color: white;
+  display: flex;
+  justify-content: center;
 
   form {
     display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin-bottom: 60px;
+    color: $light-green;
+    background-color: $background;
+    border-radius: 5px;
+    padding: 15px;
+
+    .top-row,
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+    }
 
     .edit-image {
       display: flex;
       flex-direction: column;
+      width: 300px;
+
+      img {
+        margin-bottom: 15px;
+      }
     }
 
     .edit-info {
       display: flex;
       flex-direction: column;
+      width: 350px;
+
+      input,
+      textarea,
+      select {
+        background-color: transparent;
+        border: 1px solid $charcoal;
+        margin-bottom: 10px;
+        padding: 2px 5px;
+        color: $light-green;
+      }
+
+      label {
+        color: $charcoal;
+      }
+    }
+
+    .checkboxes {
+      margin-bottom: 10px;
+      width: 300px;
+      p {
+        margin-bottom: 5px;
+        color: $charcoal;
+      }
+
+      .workouts {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      label {
+        padding-right: 5px;
+      }
+
+      .checkbox {
+        margin-right: 10px;
+      }
+    }
+
+    .filters-submit {
+      width: 350px;
+      .filters,
+      .searches {
+        margin-bottom: 10px;
+        p {
+          margin-bottom: 5px;
+          color: $charcoal;
+        }
+
+        label {
+          padding-right: 10px;
+        }
+
+        input {
+          margin-right: 15px;
+        }
+      }
+
+      .password-section {
+        margin-bottom: 10px;
+        label {
+          margin-bottom: 5px;
+          color: $charcoal;
+        }
+
+        input {
+          background-color: transparent;
+          border: 1px solid $charcoal;
+          color: $light-green;
+        }
+      }
+
+      .submit-section input {
+        background-color: $charcoal;
+        color: $persian-green;
+        border: none;
+        padding: 2px 4px;
+      }
+
+      .submit-section input:hover {
+        background-color: $light-green;
+      }
     }
   }
 }

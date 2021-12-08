@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: $raleway;
 }
 
 .spotme-options {
   position: relative;
   top: -40px;
-  color: white;
   display: flex;
   justify-content: space-between;
-  width: 750px;
+  width: 800px;
 
   a {
     color: $persian-green;
@@ -18,37 +18,50 @@
   }
 
   a:hover {
-    color: white;
+    color: $light-green;
   }
 }
 
-.radio {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.filters {
+  width: 300px;
+  color: $charcoal;
+  background-color: $background;
+  padding: 10px;
+  border-radius: 5px;
 
-  div {
+  .radio {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-right: 10px;
+    margin-bottom: 10px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .search {
+      padding: 0 5px;
+      font-size: 14px;
+      height: 25px;
+      background-color: transparent;
+      border: 1px solid $charcoal;
+      color: $light-green;
+    }
   }
 
-  .search {
-    padding: 0 5px;
+  .submit {
+    color: $persian-green;
+    border: none;
+    background-color: $charcoal;
     font-size: 14px;
-    height: 25px;
-    background-color: transparent;
-    border: 1px solid $persian-green;
-    color: white;
+    padding: 2px 4px;
   }
-}
 
-.submit {
-  color: white;
-  border: 1px solid $persian-green;
-  background-color: transparent;
-  font-size: 14px;
+  .submit:hover {
+    background-color: $light-green;
+  }
 }
 
 .spotme-list {
@@ -63,7 +76,8 @@
   width: 800px;
   justify-content: space-between;
   margin-bottom: 30px;
-  border: 1px solid $persian-green;
+  background-color: $background;
+  border-radius: 5px;
   position: relative;
 
   .spot-me-image {
@@ -71,21 +85,24 @@
     height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   .spotme-info {
     width: 480px;
-    color: $light-green;
+    color: $charcoal;
     margin-left: 10px;
     margin-top: 5px;
 
     .answer {
-      color: white;
+      color: $light-green;
     }
 
     .top-row {
       margin-bottom: 5px;
-      color: white;
+      color: $light-charcoal;
+      border-bottom: 1px solid $light-charcoal;
     }
 
     .second-row {
@@ -94,13 +111,24 @@
       width: 100%;
       margin-bottom: 5px;
 
+      a {
+        text-decoration: none;
+        color: $light-green;
+      }
+
+      a:hover {
+        color: $light-charcoal;
+      }
+
       .date {
         display: flex;
         width: 100px;
         margin-right: 20px;
+        font-size: 14px;
+        font-family: sans-serif;
 
         p {
-          color: white;
+          color: $charcoal2;
           padding-left: 10px;
         }
       }
@@ -116,8 +144,6 @@
     }
 
     .fourth-row {
-      margin-bottom: 5px;
-
       p {
         margin-bottom: 5px;
       }
@@ -139,13 +165,39 @@
 
     .sixth-row {
       margin-bottom: 5px;
-      color: white;
+      color: $light-green;
+      font-size: 14px;
+      font-style: italic;
     }
 
     .bottom-row {
       position: absolute;
-      bottom: 10px;
+      bottom: 5px;
       left: 10px;
+      display: flex;
+      width: 480px;
+
+      a,
+      p {
+        margin-right: 10px;
+        text-decoration: none;
+        color: $charcoal;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      a:hover,
+      p:hover,
+      button:hover {
+        color: $light-green;
+      }
+
+      button {
+        font-size: 14px;
+        color: $charcoal;
+        background-color: transparent;
+        border: none;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { removeToken, removeUserId, setSearch, setSearchType, removeSearch, removeSearchType, removeGender, getUserId } from '../helpers/auth'
+import { removeToken, removeUserId, setSearch, setSearchType, removeSearch, removeSearchType, removeGender, getUserId, removeCity } from '../helpers/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { Squash as Hamburger } from 'hamburger-react'
 import { Offcanvas } from 'react-bootstrap'
@@ -10,6 +10,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
+  const userId = getUserId()
   const [messages, setMessages] = useState([])
   const [unreadMessages, setUnreadMessages] = useState([])
   const [url, setUrl] = useState(null)
@@ -17,25 +18,20 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
     type: null,
     search: null,
   })
+  
+  if (window.location.href !== url) setUrl(window.location.href)
 
   useEffect(() => {
     
 
     const getEmailData = async () => {
-      if (window.location.href !== url) setUrl(window.location.href)
-      console.log(url)
       const user = getUserId()
-      console.log(user)
       if (!user) return
       const allMessages = await getMessages()
-      console.log(allMessages)
       const userMessages = allMessages.filter(message => message.receiver.id === Number(user))
-      console.log(userMessages)
       setMessages(userMessages)
       const unread = messages.filter(message => message.isRead === false)
-      console.log(unread)
       setUnreadMessages(unread)
-      console.log(unreadMessages)
     }
     getEmailData()
 
@@ -68,6 +64,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
     removeSearch()
     removeSearchType()
     removeGender()
+    removeCity()
     setIsLoggedIn(false)
     navigate('/')
   }
@@ -90,11 +87,12 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
       <Offcanvas show={show}>
         <ul className='hamburger-list'>
           <li><Link onClick={handleClose} to='/'>Home</Link></li>
-          <li><Link onClick={handleClose} to='/shouts'>Shouts</Link></li>
-          <li><Link onClick={handleClose} to='/spotmes'>Spot Me</Link></li>
+          <li><Link onClick={handleClose} to='/about'>About</Link></li>
           {isLoggedIn ?
             <>
-              <li>Profile</li>
+              <li><Link onClick={handleClose} to='/shouts'>Shouts</Link></li>
+              <li><Link onClick={handleClose} to='/spotmes'>Spot Me</Link></li>
+              <li><Link onClick={handleClose} to={`/users/${userId}`}>View Profile</Link></li>
               <li><Link onClick={handleClose} to='/profile/edit'>Edit Profile</Link></li>
               <button onClick={handleLogout}>Logout</button>
             </>

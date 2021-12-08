@@ -6,7 +6,8 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     email = models.CharField(max_length=30, unique=True)
-    image = models.CharField(max_length=200, blank=True)
+    image = models.CharField(max_length=200, blank=True,
+                             default='https://i.pinimg.com/236x/38/aa/95/38aa95f88d5f0fc3fc0f691abfaeaf0c.jpg')
     city = models.CharField(max_length=30, blank=True)
     postcode = models.CharField(max_length=5, blank=True)
     gender = models.CharField(max_length=12, blank=True)
