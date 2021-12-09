@@ -11,7 +11,7 @@ const MessageCard = ({ sender, created, headline, isRead, id, message }) => {
   const time = getTime(created)
   const navigate = useNavigate()
 
-  const messagePreview = message.slice(0, 30) + '...'
+  const messagePreview = message.slice(0, 45) + '...'
 
   const handleUnread = async () => {
     await changeMessage(id)

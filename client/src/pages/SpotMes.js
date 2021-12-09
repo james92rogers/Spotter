@@ -36,7 +36,7 @@ const SpotMes = () => {
       if (userGender === 'male'){
         filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowMales === true)
       } else if (userGender === 'female'){
-        filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowFemales === true)
+        filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowFemale === true)
       } else if (userGender === 'non-binary'){
         filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowNonBinary === true)
       }

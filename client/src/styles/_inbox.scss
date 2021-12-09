@@ -12,15 +12,16 @@
 }
 
 .message-card {
-  width: 500px;
+  width: 550px;
   background-color: $background;
   margin-bottom: 10px;
   display: flex;
+  justify-content: space-between;
   border-radius: 5px;
 
   .message-picture {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     background-size: cover;
     margin-right: 10px;
     border-top-left-radius: 5px;
@@ -28,15 +29,17 @@
   }
 
   .message-info {
-    width: 410px;
+    width: 450px;
     color: $persian-green;
     position: relative;
 
     .top-row {
       display: flex;
       justify-content: space-between;
-      padding-top: 3px;
+      padding-top: 5px;
       color: $light-green;
+      margin-bottom: 5px;
+      font-size: 18px;
 
       a {
         text-decoration: none;
@@ -62,6 +65,7 @@
     .sender a {
       color: $light-green;
       text-decoration: none;
+      margin-bottom: 10px;
     }
 
     .sender a:hover {

@@ -72,16 +72,20 @@
 
     .filters-submit {
       width: 350px;
+
       .filters,
       .searches {
         margin-bottom: 10px;
+        width: 350px;
+        background-color: transparent;
         p {
           margin-bottom: 5px;
           color: $charcoal;
         }
 
         label {
-          padding-right: 10px;
+          padding-right: 5px;
+          color: $light-green;
         }
 
         input {
