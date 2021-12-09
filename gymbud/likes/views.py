@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.permissions import IsAuthenticated
+#from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .serializers import LikeSerializer, PopulatedSerializer
 from rest_framework.views import APIView
@@ -13,7 +13,7 @@ from django.core.exceptions import PermissionDenied
 
 
 class AddLikeView(APIView):
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
     def post(self, request, pk):
         print("************request received***********")
@@ -28,7 +28,6 @@ class AddLikeView(APIView):
 
 
 class LikeListView(APIView):
-    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         likes = Like.objects.all()
@@ -37,7 +36,6 @@ class LikeListView(APIView):
 
 
 class LikeDeleteView(APIView):
-    permission_classes = (IsAuthenticated,)
 
     def delete(self, request, pk):
         try:

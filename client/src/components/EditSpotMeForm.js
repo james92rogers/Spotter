@@ -32,7 +32,6 @@ const EditSpotMe = ({ id, headline, location, postcode, message, searchingFor })
 
   const handleError = (error) => {
     if (error.response) {
-      console.log(error.response.data)
       setError(true)
     }
   }
@@ -57,7 +56,6 @@ const EditSpotMe = ({ id, headline, location, postcode, message, searchingFor })
       data.workoutTypes.push(event.target.value)
     }
     data.workoutTypes.sort()
-    console.log(data)
   }
 
   const handleSubmit = async (event) => {

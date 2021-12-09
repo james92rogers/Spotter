@@ -34,7 +34,6 @@ const CreateSpotMe = () => {
   
   const handleError = (error) => {
     if (error.response) {
-      console.log(error.response.data)
       setError(true)
     }
   }
@@ -59,12 +58,10 @@ const CreateSpotMe = () => {
       data.workoutTypes.push(event.target.value)
     }
     data.workoutTypes.sort()
-    console.log(data)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     addSpotMe(data).then(handleSuccessfulSpotMe).catch(handleError)
   }
 

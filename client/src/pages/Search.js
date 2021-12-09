@@ -19,11 +19,11 @@ const Search = () => {
     const getData = async () => {
       const res = await axios.get('/api/users/')
       if (searchType === 'username'){
-        filteredUsers = res.data.filter(user => user.username === search)
+        filteredUsers = res.data.filter(user => user.username.toLowerCase() === search.toLowerCase())
       } else if (searchType === 'location'){
-        filteredUsers = res.data.filter(user => user.city === search)
+        filteredUsers = res.data.filter(user => user.city.toLowerCase() === search.toLowerCase())
       } else if (searchType === 'postcode'){
-        filteredUsers = res.data.filter(user => user.postcode === search)
+        filteredUsers = res.data.filter(user => user.postcode.toLowerCase() === search.toLowerCase())
       }
       
       if (userGender === 'male'){

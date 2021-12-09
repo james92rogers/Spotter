@@ -11,9 +11,7 @@ const EditProfile = () => {
   useEffect(() => {
     
     const getUserData = async () => {
-      console.log(id)
       const response = await axios.get(`/api/users/${id}`)
-      console.log(response.data)
       setUser(response.data)
           
     }

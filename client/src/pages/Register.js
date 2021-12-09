@@ -22,7 +22,6 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     register(data).then(handleSuccessfulRegister).catch(handleError)
   }
 
@@ -58,7 +57,7 @@ const Register = () => {
         <label htmlFor='password_confirmation'>Password Confirmation:</label>
         <input type='password' name='password_confirmation' id='password_confirmation' onChange={handleFormChange} placeholder='Confirm your password' />
         <TextInput name='city' title='City:' func={handleFormChange} placeholder='e.g London' />
-        <TextInput name='postcode' title='Area:' func={handleFormChange} placeholder='e.g SW16' />
+        <TextInput name='postcode' title='Area:' func={handleFormChange} placeholder='e.g Wimbledon' />
         <label htmlFor='gender'>What gender do you identify as:</label>
         <select id='gender' name='gender' onChange={handleFormChange}>
           <option>-Select Gender-</option>

@@ -21,7 +21,6 @@ const SpotMeCard = ({ id, headline, owner, location, postcode, message, searchin
 
   const handleError = (error) => {
     if (error.response) {
-      console.log(error.response.data)
       setError(true)
     }
   }
@@ -40,7 +39,6 @@ const SpotMeCard = ({ id, headline, owner, location, postcode, message, searchin
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     addMessage(owner.id, data).then(handleSuccessfulMessage).catch(handleError)
   }
 
@@ -111,7 +109,7 @@ const SpotMeCard = ({ id, headline, owner, location, postcode, message, searchin
           </Modal.Body>
           <Modal.Footer>
             <button variant="secondary" onClick={handleSubmit}>
-            Send Reply
+            Send Message
             </button>
             {error ? (
               <div className='error'>

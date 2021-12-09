@@ -14,7 +14,6 @@ const CreateShout = () => {
   
   const handleError = (error) => {
     if (error.response) {
-      console.log(error.response.data)
       setError(true)
     }
   }
@@ -33,7 +32,6 @@ const CreateShout = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     addShout(data).then(handleSuccessfulShout).catch(handleError)
   }
 

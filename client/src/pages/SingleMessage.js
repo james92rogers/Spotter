@@ -26,7 +26,6 @@ const SingleMessage = () => {
 
   const handleError = (error) => {
     if (error.response) {
-      console.log(error.response.data)
       setError(true)
     }
   }
@@ -45,7 +44,6 @@ const SingleMessage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     addMessage(message.sender.id, data).then(handleSuccessfulMessage).catch(handleError)
   }
 

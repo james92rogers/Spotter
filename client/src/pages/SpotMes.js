@@ -20,18 +20,13 @@ const SpotMes = () => {
 
   useEffect(() => {
     const getData = async () => {
-      console.log('search = ', search)
-      console.log('filter = ', filter)
-
       const res = await axios.get('/api/spotme/')
-      console.log(res.data)
 
       if (filter === 'city'){
-        filteredResponse = (res.data.filter(spotme => spotme.location === search))
+        filteredResponse = (res.data.filter(spotme => spotme.location.toLowerCase() === search.toLowerCase()))
       } else if (filter === 'area') {
-        filteredResponse = (res.data.filter(spotme => spotme.postcode === search))
+        filteredResponse = (res.data.filter(spotme => spotme.postcode.toLowerCase() === search.toLowerCase()))
       }
-      console.log(filteredResponse)
 
       if (userGender === 'male'){
         filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowMales === true)
@@ -40,8 +35,6 @@ const SpotMes = () => {
       } else if (userGender === 'non-binary'){
         filteredGenderUsers = filteredResponse.filter(spotme => spotme.owner.allowNonBinary === true)
       }
-
-      console.log(filteredGenderUsers)
 
       usersAreSearching = filteredGenderUsers.filter(spotme => spotme.owner.isSearching === true)
       usersAreSearching.sort((a,b) => (a.created > b.created ? -1 : 1))
@@ -52,12 +45,10 @@ const SpotMes = () => {
 
   const handleRadio = (event) =>  {
     setFilter(event.target.value)
-    console.log(filter)
   }
 
   const handleInput = (event) => {
     setSearchHolder(event.target.value)
-    console.log(searchHolder)
   }
 
   const handleSubmit = (event) => {

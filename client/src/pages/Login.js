@@ -19,7 +19,6 @@ const Login = ({ setIsLoggedIn }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     login(data).then(handleSuccessfulLogin).catch(handleError)
 
   }
@@ -30,12 +29,10 @@ const Login = ({ setIsLoggedIn }) => {
     setCity(city)
     setIsLoggedIn(true)
     setIsError(false)
-    console.log('successful login')
     navigate('/')
   }
   const handleError = (error) => {
     if (error.response) {
-      console.log('error logging in')
       setIsError(true)
     }
   }

@@ -49,7 +49,6 @@ const EditProfileForm = ({ username, password, password_confirmation, email, ima
       ...data,
       [name]: value,
     })
-    console.log(data)
   }
 
   const handleUpload = async (event) => {
@@ -67,12 +66,10 @@ const EditProfileForm = ({ username, password, password_confirmation, email, ima
       ...data,
       [name]: updatedValue,
     })
-    console.log(data)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(data)
     editUser(id, data).then(handleSuccessfulEdit).catch(handleError)
   }
 
@@ -92,8 +89,6 @@ const EditProfileForm = ({ username, password, password_confirmation, email, ima
       password: event.target.value,
       password_confirmation: event.target.value,
     })
-    console.log(data)
-
   }
 
   const handleCheckbox = (event) => {
@@ -102,7 +97,6 @@ const EditProfileForm = ({ username, password, password_confirmation, email, ima
     if (index >= 0) data.workoutTypes.splice(index, 1)
     else data.workoutTypes.push(value)
     data.workoutTypes.sort()
-    console.log(data)
   }
 
 
