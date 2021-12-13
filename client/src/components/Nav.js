@@ -111,7 +111,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
               <option>-Search By-</option>
               <option value='username'>Username</option>
               <option value='location'>City</option>
-              <option value='postcode'>Postcode</option>
+              <option value='postcode'>Area</option>
             </select>
           </div>
           <div className='form-field'>

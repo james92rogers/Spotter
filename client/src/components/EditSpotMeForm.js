@@ -82,7 +82,7 @@ const EditSpotMe = ({ id, headline, location, postcode, message, searchingFor })
         <label htmlFor="message">Message:</label>
         <textarea onChange={handleChange} name='message' id='message' placeholder={message}></textarea>
         <TextInput name='searchingFor' title='Searching For:' func={handleChange} placeholder={searchingFor} />
-        <input className="submit" type='submit' value='Create Spot Me'></input>
+        <input className="submit" type='submit' value='Create Spot Me' />
       </form>
       {error ? (
         <div className='error'>

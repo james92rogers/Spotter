@@ -100,7 +100,7 @@ const SingleMessage = () => {
             <Modal.Title>Send a Reply</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input onChange={handleChange} type='text' name='headline' placeholder='Add your message title here'></input>
+            <input onChange={handleChange} type='text' name='headline' placeholder='Add your message title here' />
             <textarea onChange={handleChange} name='message' placeholder='Write your message here'></textarea>
           </Modal.Body>
           <Modal.Footer>

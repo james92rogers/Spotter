@@ -80,7 +80,6 @@ class LoginView(APIView):
 
 
 class AddFollowerView(APIView):
-    #permission_classes = (IsAuthenticated,)
 
     def put(self, request, pk):
         u1 = User.objects.get(id=request.user.id)
@@ -92,7 +91,6 @@ class AddFollowerView(APIView):
 
 
 class DeleteFollowerView(APIView):
-    #permission_classes = (IsAuthenticated,)
 
     def put(self, request, pk):
         u1 = User.objects.get(id=request.user.id)

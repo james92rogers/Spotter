@@ -71,7 +71,7 @@ const CreateSpotMe = () => {
         <h2>Create Spot Me</h2>
         <TextInput name='headline' title='Headline:' func={handleChange} placeholder= 'e.g Looking for Running Partner' />
         <TextInput name='location' title='City:' func={handleChange} placeholder= 'e.g London' />
-        <TextInput name='postcode' title='Area:' func={handleChange} placeholder= 'e.g SW16' />
+        <TextInput name='postcode' title='Area:' func={handleChange} placeholder= 'e.g Richmond' />
         <div className='checkboxes'>
           <p>Select the Workout Types that apply:</p>
           <div className='workouts'>
@@ -83,7 +83,7 @@ const CreateSpotMe = () => {
         <label htmlFor="message">Message:</label>
         <textarea onChange={handleChange} name='message' id='message' placeholder='e.g Searching for someone local who would like to go running a few nights a week.'></textarea>
         <TextInput name='searchingFor' title='Searching For:' func={handleChange} placeholder= 'e.g Groups, 1-to-1' />
-        <input className="submit" type='submit' value='Create Spot Me'></input>
+        <input className="submit" type='submit' value='Create Spot Me' />
       </form>
       {error ? (
         <div className='error'>

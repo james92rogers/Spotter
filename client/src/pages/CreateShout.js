@@ -38,8 +38,8 @@ const CreateShout = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} type='text-area' name='message' placeholder='What would you like to shout about?'></input>
-        <input type='submit' value='Send Shout'></input>
+        <input onChange={handleChange} type='text-area' name='message' placeholder='What would you like to shout about?' />
+        <input type='submit' value='Send Shout' />
       </form>
       {error ? (
         <div className='error'>
