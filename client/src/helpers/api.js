@@ -210,7 +210,6 @@ export const login = async (data) => {
       'Content-Type': 'application/json',
     },
     data,
-
   }
   const response = await axios(config)
   return response.data
