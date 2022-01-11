@@ -73,7 +73,7 @@ With that made I moved over to trello to set up a board for my project. It was h
 
 Finally, I got to work on some wireframes, which I stuck to my wardrobe door next to my desk to refer to throughout the process. Creating these early helped me establish which information I needed within each model, as well as helped me assign each part into different divs and sections to better style the pages at a later date.
 
-![screenshot of wireframes](./client/src/assets/readme_images/wireframes.jpg)
+![screenshot of wireframes](./client/src/assets/readme_images/wireframes.png)
 
 Once I had done all of this, I got the project sign off and was ready to begin building.
 
