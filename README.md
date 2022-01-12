@@ -2,7 +2,7 @@
 
 Solo Project  
 Time Frame: 9 days  
-Visit the site: (not deployed yet)  
+Visit the site: https://bit.ly/jrspotter  
 
 Login Credentials:  
 Email: james@james.com   
