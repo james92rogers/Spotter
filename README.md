@@ -64,7 +64,7 @@ Once I had the idea down I got to work on planning my models and the relationshi
 
 ![screenshot of ERD diagram](./client/src/assets/readme_images/erd.png)
 
-With that made I moved over to trello to set up a board for my project. It was here where I went into greater detail about each model and what sorts of information would be stored within them. It was also here that I mapped out my endpoints for my back-end, as well as my URL’s for my front-end. This meant when I later came to creating back-end functionality, I had a simple checklist to use to ensure I had everything I needed. Likewise when I created my front-end, I could easily add my URL’s into the router as I had already thought them through early.
+With that made I moved over to Trello to set up a board for my project. It was here where I went into greater detail about each model and what sorts of information would be stored within them. It was also here that I mapped out my endpoints for my back-end, as well as my URL’s for my front-end. This meant when I later came to creating back-end functionality, I had a simple checklist to use to ensure I had everything I needed. Likewise when I created my front-end, I could easily add my URL’s into the router as I had already thought them through early.
 
 
 ![screenshot of trello](./client/src/assets/readme_images/trello.png)  
